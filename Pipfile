@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+tensorflow = "*"
+matplotlib = "*"
+ipython = "*"
+pandas = "*"
+jupyter = "*"
+tqdm = "*"
+jupyterthemes = "*"
+gensim = "*"
+tabulate = "*"
+nose = "*"
+pybgpstream = "*"
+scikit-learn = "*"
+jupyter-nbextensions-configurator = "*"
+jupyter-contrib-nbextensions = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
