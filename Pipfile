@@ -18,6 +18,7 @@ pybgpstream = "*"
 scikit-learn = "*"
 jupyter-nbextensions-configurator = "*"
 jupyter-contrib-nbextensions = "*"
+python-levenshtein = "*"
 
 [dev-packages]
 

@@ -1,5 +1,6 @@
 #!python3
 
+import argparse
 import os
 import sys
 
@@ -15,13 +16,13 @@ RELAT = {
 
 class ASRelationshipGraph():
 
-    def __init__(self):
-        self.graph = self._build_graph()
+    def __init__(self, as_relationships):
+        self.graph = self._build_graph(as_relationships)
 
-    def _build_graph(self):
+    def _build_graph(self, as_relationships: str):
         graph = {}
 
-        f = open(AS_RELATIONSHIP_FILEPATH)
+        f = open(as_relationships)
         for line in f:
             l = line.split('|')
             as1, as2, relat = int(l[0]), int(l[1]), int(l[2])
@@ -67,9 +68,9 @@ class ASRelationshipGraph():
         return True
 
 
-def main():
+def main(args):
 
-    asr = ASRelationshipGraph()
+    asr = ASRelationshipGraph(args.as_relationships)
 
     not_vf = 0
     for i, l in enumerate(sys.stdin):
@@ -94,4 +95,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('as_relationships', help='path to a file describing AS relationships')
+    args = parser.parse_args()
+
+    main(args)
+

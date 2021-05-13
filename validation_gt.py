@@ -30,6 +30,7 @@ def encode_and_pad_paths_from_file(b2v, gt_summary_df, filepath):
         return [], 0
 
     paths_before_padding = []
+    paths_pure = []
     errors = 0
     for path in data_df[0]:
         p = []
@@ -40,18 +41,17 @@ def encode_and_pad_paths_from_file(b2v, gt_summary_df, filepath):
             for asn in path:
                 p.append(b2v.wv.key_to_index[asn] + 1)
             paths_before_padding.append(p)
+            paths_pure.append(path)
         except KeyError:
             print(f'Cannot find asn {asn} (relative to path {path}) in the bgp2vec asns', file=sys.stderr)
             errors += 1
             continue
 
     return pad_sequences(paths_before_padding, maxlen=13, padding="post", truncating="pre",
-                         value=0), paths_before_padding, errors
+                         value=0), paths_pure, errors
 
 
 def main(args):
-
-    asr = vf.ASRelationshipGraph()
 
     gt_summary_df = pd.read_csv(
         args.gt_summary,
@@ -61,18 +61,18 @@ def main(args):
     gt_summary_df.set_index('title', inplace=True)
 
     model = keras.models.load_model(args.model)
-    b2v = KeyedVectors.load('bgp2vec/unique-jan-march2018-20h.dat.b2v')
+    b2v = KeyedVectors.load(args.bgp2vec)
 
-    print('file,red_rnn,red_vf,total')
+    print('file,red_rnn,total')
 
     for f in os.listdir(args.gt_dir):
         filepath = os.path.join(args.gt_dir, f)
-        paths, paths_before_padding, errors = encode_and_pad_paths_from_file(b2v, gt_summary_df, filepath)
+        paths, paths_pure, errors = encode_and_pad_paths_from_file(b2v, gt_summary_df, filepath)
         # print(paths, errors/(len(paths) + errors))
 
         if len(paths) == 0:
             # print(f'{f} no target path found for this')
-            print(f'{f},0,0,0')
+            print(f'{f},0,0')
 
             continue
 
@@ -80,9 +80,7 @@ def main(args):
         suspect = list(preds).count(1)
         # print(f'{f}: {suspect}/{len(preds)} = {suspect/len(preds)} bad paths')
 
-        vf_bad = [asr.is_vf(p) for p in paths_before_padding].count(False)
-
-        print(f'{f},{suspect},{vf_bad},{len(paths)}')
+        print(f'{f},{suspect},{len(paths)}')
 
 
 if __name__ == '__main__':
