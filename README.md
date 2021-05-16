@@ -30,11 +30,18 @@ The paper can be found in the author's archive
 In this section, we describe how the code can be used to learn to classify possible hijacking
 events.
 
-First let us install our environment and the project's dependencies using Pipenv.
-Make sure you cloned the repository and your shell is opened in the project's root, then run
+First let us clone the repository
+```
+$ git clone https://github.com/thalespaiva/bgphijack.git
+```
 
-`$ pipenv install`
+Now we install our environment and the project's dependencies using Pipenv.
+```
+$ pipenv shell
+$ pipenv install
+```
 
+We are ready to use the code :^)
 
 ## Data collection
 
