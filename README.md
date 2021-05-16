@@ -118,11 +118,11 @@ can later use it as the embedding layer for our Neural Network.
 
 To see the closest neighbors to AS3356 (Google) and AS15169 (Level3),
 we can run the following in ipython:
+```
 $ ipython
 Python 3.8.9 (default, Apr 27 2021, 17:55:19)
 Type 'copyright', 'credits' or 'license' for more information
 IPython 7.23.1 -- An enhanced Interactive Python. Type '?' for help.
-```
 In [1]: import gensim
    ...: from gensim.models import KeyedVectors
    ...: b2v = KeyedVectors.load('bgp2vec/2days_2020.b2v')
@@ -169,7 +169,7 @@ to train the model and save it to `lstm/2days_2020.lstm`.
 Notice that we are omitting tensorflow logs from the output.
 ```
 $ mkdir lstm
-$ time ./lstm_hijack_classifier.py bgp2vec/2days_2020.b2v classified/2days_2020.vf lstm/2days_2020.lstm
+$ ./lstm_hijack_classifier.py bgp2vec/2days_2020.b2v classified/2days_2020.vf lstm/2days_2020.lstm
 Model: "sequential"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #
