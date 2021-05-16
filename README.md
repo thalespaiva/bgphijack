@@ -30,6 +30,11 @@ The paper can be found in the author's archive
 In this section, we describe how the code can be used to learn to classify possible hijacking
 events.
 
+**Before we start**, please notice that module `pybgpstream`,  that we use for downloading BGP
+data, requires that [CAIDA's library `libBGPStream`](https://bgpstream.caida.org/) is installed. This can be done following 
+the [instructions given on the projects page](https://bgpstream.caida.org/docs/install/bgpstream). You must install 
+the library before proceeding to the next step.
+
 First let us clone the repository
 ```
 $ git clone https://github.com/thalespaiva/bgphijack.git
