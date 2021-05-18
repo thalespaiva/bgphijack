@@ -35,9 +35,10 @@ data, requires that [CAIDA's library `libBGPStream`](https://bgpstream.caida.org
 the [instructions given on the projects page](https://bgpstream.caida.org/docs/install/bgpstream). You must install 
 the library before proceeding to the next step.
 
-First let us clone the repository
+First let us clone the repository and `cd` to it 
 ```
 $ git clone https://github.com/thalespaiva/bgphijack.git
+$ cd bgphijack
 ```
 
 Now we install our environment and the project's dependencies using Pipenv.
