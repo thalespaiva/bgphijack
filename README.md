@@ -4,8 +4,8 @@
 This project contains the implementation of the LSTM-based classification of BGP hijacking paths
 as described in
 
-    Tal Shapira and Yuval Shavitt. A Deep Learning Approach for IP Hijack Detection Based on ASN
-    Embedding. Proceedings of the Workshop on Network Meets AI & ML. 2020.
+> Tal Shapira and Yuval Shavitt. A Deep Learning Approach for IP Hijack Detection Based on ASN 
+> Embedding. Proceedings of the Workshop on Network Meets AI & ML. 2020.
 
 The paper can be found in the author's archive
 [here](http://www.eng.tau.ac.il/~shavitt/pub/NetAI2020.pdf).
