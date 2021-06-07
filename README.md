@@ -10,6 +10,10 @@ as described in
 The paper can be found in the author's archive
 [here](http://www.eng.tau.ac.il/~shavitt/pub/NetAI2020.pdf).
 
+**Important notice**. This implementation comes from our interpretation of the paper above,
+which we did not author. We made our code available to foster experimentation by others, but
+we are not related to the paper's authors in any way.
+
 # Structure
 
 * `bgp2vec.py`
