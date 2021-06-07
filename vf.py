@@ -1,4 +1,4 @@
-#!python3
+#!/usr/bin/env python3
 '''
 This file contains the implementation of 3 algorithms for classifying the relationships between
 two Autonomous Systems (ASes), as described in
