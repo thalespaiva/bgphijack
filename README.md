@@ -343,7 +343,7 @@ ProbLink is tool for inference of AS relationships. Knowledge of AS relationship
 for classification of Valley-Free paths, which is one definition for non-suspicious paths.
 
 In `ProbLink`, you will find ProbLink's inferred relationships for 01/01/2019. This file
-is decompress to facilitate its usage directly from cloners of this repository. The file
+is decompressed to facilitate its usage directly from clones of this repository. The file
 corresponds to [this compressed file from the ProbLink project](https://yuchenjin.github.io/problink-as-relationships/20190101.tar.gz)
 
 # License
